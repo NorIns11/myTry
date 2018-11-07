@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>跨域——jsonp</title>
+  <script>
+    function showData(result) {
+      var res = JSON.stringify(result);
+      document.getElementById("text").innerText = res;
+    }
+
+    window.onload = function() {
+      document.getElementById("button").onclick = function() {
+        var sc = document.createElement("script");
+        sc.type = "text/javascript";
+        sc.src = "https://www.baidu.com?callback=showData";
+        var head0 = document.getElementsByTagName("head")[0];
+        head0.appendChild(sc);
+      }
+    }
+  </script>
+</head>
+<body>
+  <input id="button" type="button" value="点击测试跨域">
+  <textarea id="text" cols="30" rows="10"></textarea>
+</body>
+</html>
