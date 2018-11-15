@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function fn() {
+      alert(this);
+      console.log(this);
+      var arr = new Array(3);
+      arr[2] = "222";
+      console.log(arr);
+    }
+
+    function fn1() {
+      alert(1);
+    }
+
+    function fn2() {
+      alert(2);
+    }  
+
+    function click1() {
+      fn1.call(fn2);
+    }
+
+    function click2() {
+      fn1.call.call(fn2);
+    }
+  </script>
+</head>
+<body>
+  <button id="button1" onclick="click1()">fn1.call(fn2)</button>
+  <button id="button2" onclick="click2()">fn1.call.call(fn2)</button>
+  <button id="button3" onclick="fn()">fn</button>
+  <!-- <button id="button4" onclick="showCall()">showCall</button> -->
+</body>
+</html>

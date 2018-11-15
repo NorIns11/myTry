@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style> 
+    /* 基本样式 */
+    body {
+      margin: 0;
+    }
+    .parent {
+      background-color: #ddd;
+      border: 2px solid #000;
+    }
+    .child1 {
+      float: left;
+      border: 1px dotted #000;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(252, 115, 2);
+    }
+    .child2 {
+      float: left;
+      border: 1px dotted #000;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(2, 119, 252);
+    }
+
+    /* 清除浮动 */
+    .parent1 {
+      overflow: hidden;
+    }
+    .clear {
+      clear: both;
+    }
+    .parent3::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>父块 overflow: hidden</h2>
+  <div class="parent parent1">
+    <div class="child child1">child1-1</div>
+    <div class="child child2">child1-2</div>
+  </div>
+  <hr>
+
+  <h2>额外标签  clear:both</h2>
+  <div class="parent parent2">
+    <div class="child child1">child2-1</div>
+    <div class="child child2">child2-2</div>
+    <div class="clear"></div>
+  </div>
+  <hr>
+
+  <h2>使用伪元素:after清除浮动</h2>
+  <div class="parent parent3">
+    <div class="child child1">child3-1</div>
+    <div class="child child2">child3-2</div>
+  </div>
+  <hr>
+</body>
+</html>
