@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/SubType.js"></script>
+  <style>
+  .tri1 {
+    width: 0;
+    height: 0;
+    border-color: black transparent transparent;
+    border-style: solid;
+    border-width: 20px 20px 0;
+  }
+  .tri2 {
+    width: 0;
+    height: 0;
+    border-color: transparent chartreuse transparent transparent;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+  }
+  .nw {
+    width: 0;
+    height: 0;
+    border-color: coral transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+  }
+
+  .box1 ~ .box1 {
+    width: 20px;
+    height: 20px;
+    background-color: violet;
+  }
+  .box1 + .box1 {
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <!-- <div class="tri1"></div>
+  <div class="tri2"></div>
+  <div class="nw"></div>
+  <hr>
+  <div class="parent" id="parent"></div>
+  <script>
+    var parent = document.getElementById("parent");
+
+    var child = document.createElement("p");
+    child.appendChild(document.createTextNode("I'm child!"));
+    var fragmentChild = document.createDocumentFragment();
+    fragmentChild.appendChild(document.createTextNode("I'm fragmentChild!"));
+
+    parent.appendChild(child);
+    parent.appendChild(fragmentChild);
+  </script> -->
+  <div class="box1">1</div>
+  <div class="box1">2</div>
+  <div class="box1">3</div>
+  <div class="box1">4</div>
+  <hr>
+  <div class="box1">5</div>
+  <hr>
+  <ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+let ul = document.querySelector('#ul')
+ul.addEventListener('click', (event) => {
+  console.log(event.target);
+})
+</script>
+</body>
+</html>
