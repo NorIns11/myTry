@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    setTimeout(() => {
+      var totalNum = 100;
+      var perNum = 20;
+      var times = totalNum / perNum;
+      var timeCount = 0;
+      var ul = document.getElementsByTagName("ul")[0];
+
+      function add() {
+        var fragment = document.createDocumentFragment();
+        for(var i = 0; i < perNum; i++) {
+          var li = document.createElement("li");
+          li.innerText = timeCount + ":" + i;
+          fragment.appendChild(li);
+        }
+        ul.appendChild(fragment);
+        timeCount += 1;
+        loop();
+      }
+
+      function loop() {
+        if(timeCount < times) {
+          window.requestAnimationFrame(add);
+        }
+      }
+      loop();
+    }, 0);
+  </script>
+</head>
+<body>
+  <ul></ul>
+</body>
+</html>
