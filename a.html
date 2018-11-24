@@ -40,10 +40,14 @@
   </style>
 </head>
 <body>
-  <!-- <div class="tri1"></div>
+  <!-- triangle -->
+  <div class="tri1"></div>
   <div class="tri2"></div>
   <div class="nw"></div>
   <hr>
+
+  <!-- ***************************** -->
+
   <div class="parent" id="parent"></div>
   <script>
     var parent = document.getElementById("parent");
@@ -55,7 +59,10 @@
 
     parent.appendChild(child);
     parent.appendChild(fragmentChild);
-  </script> -->
+  </script>
+
+  <!-- ***************************** -->
+
   <div class="box1">1</div>
   <div class="box1">2</div>
   <div class="box1">3</div>
@@ -71,10 +78,66 @@
     <li>5</li>
 </ul>
 <script>
-let ul = document.querySelector('#ul')
-ul.addEventListener('click', (event) => {
-  console.log(event.target);
-})
+  let ul = document.querySelector('#ul')
+  ul.addEventListener('click', (event) => {
+    console.log(event.target);
+  })
+</script>
+
+<!-- ***************************** -->
+
+<!-- jsonp -->
+<button id="jsonpBtn">jsonp测试</button>
+<div id="result"></div>
+<script>
+  var jsonpBtn = document.getElementById("jsonpBtn");
+  jsonpBtn.addEventListener("click",() => {
+    var box = document.getElementById("result");
+    var addScript = document.createElement("script");
+    addScript.type = "text/javascript";
+    addScript.src="https://sug.so.360.cn/suggest?callback=dealResult";
+    box.appendChild(addScript);
+  }, false);
+  function dealResult(result) {
+    console.log(result);
+  }
+</script>
+
+<!-- ***************************** -->
+
+<!-- setTimeout -->
+<script>
+  function checkState() {
+    var time = new Date();
+    console.log(time);
+  }
+  window.setTimeout(checkState, 500); // 0.5s
+  window.setTimeout(checkState(), 10000); // 10s
+  window.setTimeout("checkState()", 1000); // 1s
+</script>
+
+<!-- ***************************** -->
+
+<!-- arguments -->
+<hr>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<dl>
+  <dt>结果</dt>
+  <dd></dd>
+</dl>
+<input type="button" id="calculate" value="求和">
+<script>
+  function doAdd() {
+    document.getElementsByTagName("dd")[0].textContent = (arguments[0] + arguments[1]);
+  }
+  function doNow() {
+    var num1 = parseInt(document.getElementById("num1").value);
+    var num2 = parseInt(document.getElementById("num2").value);
+    doAdd(num1, num2);
+  }
+  var addBtn = document.getElementById("calculate");
+  addBtn.addEventListener("click", doNow, false);
 </script>
 </body>
 </html>
