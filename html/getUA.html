@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function getBrowserInfo() {
+      console.log(2656);
+      document.myForm.Name.value = navigator.appName;
+      document.myForm.Version.value = navigator.appVersion;
+      document.myForm.Code.value = navigator.appCodeName;
+      document.myForm.Agent.value = navigator.userAgent;
+    }
+  </script>
+</head>
+<body onload="getBrowserInfo()">
+  <table>
+    <form name="myForm">
+      <tr>
+        <td>浏览器名称:</td>
+        <td><input type="text" name="Name" size="100%"></td>
+      </tr>
+      <tr>
+        <td>版本号：</td>
+        <td><input type="text" name="Version" size="100%"></td>
+      </tr>
+      <tr>
+        <td>代码名称：</td>
+        <td><input type="text" name="Code" size="100%"></td>
+      </tr>
+      <tr>
+        <td>用户代理标识：</td>
+        <td><input type="text" name="Agent" size="100%"></td>
+      </tr>
+    </form>
+  </table>
+</body>
+</html>
