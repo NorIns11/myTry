@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>swiper</title>
+  <style>
+    #home-container {
+      height: 340px;
+    }
+
+    .last,
+    .next {
+      display: inline-block;
+      margin: auto 10px;
+      width: 60px;
+      height: inherit;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .switch {
+      margin: auto 0;
+      font-size: 20px;
+    }
+
+    #banner-container {
+      display: inline-block;
+    }
+
+    .banner {
+      width: 240px;
+      height: auto;
+    }
+
+    /* #home-container::after {
+      content: '';
+      display: block;
+      clear: both;
+    } */
+  </style>
+  <script>
+    var imgList = [
+      "../img/7.JPG",
+      "../img/8.JPG",
+      "../img/9.JPG",
+    ]
+
+    function Banner(id) {
+      this.id = id;
+      this.timer = null;
+      this.img = document.getElementById("banner");
+    }
+    // 更改显示的照片
+    Banner.prototype.changeImg = function() {
+      this.img.src = imgList[this.id];
+      this.auto();
+    }
+    // 处理id，确保在imgList中能找到
+    Banner.prototype.dealId = function() {
+      this.id = (this.id + imgList.length) % imgList.length;
+    }
+    // true：下一张， false：上一张
+    Banner.prototype.changeId = function(bool) {
+      clearInterval(this.timer);
+      this.id = bool ? this.id + 1 : this.id - 1;
+      this.dealId(); 
+      this.changeImg();
+    }
+    // 每2秒切换一次
+    Banner.prototype.auto = function() {
+      var that = this;
+      this.timer = setInterval(function() {
+        that.changeId(true);
+      }, 2000);
+    }
+
+    function init() {
+      var banner = new Banner(0);
+      banner.changeImg();
+      document.getElementsByClassName("last")[0].addEventListener("click", function() {
+        banner.changeId(false);
+      }, false);
+      document.getElementsByClassName("next")[0].addEventListener("click", function() {
+        banner.changeId(true);
+      }, false);
+    }
+
+    window.addEventListener("load", init, false);
+  </script>
+</head>
+
+<body>
+  <h1>简易轮播图</h1>
+  <div id="home-container">
+    <div class="last">
+      <div class="switch"> &lt;—— </div>
+    </div>
+    <div id="banner-container">
+      <img id="banner" class="banner" src="../img/7.JPG" alt="">
+    </div>
+    <div class="next">
+      <div class="switch"> ——&gt; </div>
+    </div>
+  </div>
+</body>
+</html>
