@@ -139,5 +139,41 @@
   var addBtn = document.getElementById("calculate");
   addBtn.addEventListener("click", doNow, false);
 </script>
+
+<!-- ***************************** -->
+
+<!-- prototype -->
+<script>
+  function A() {
+    this.do = function() {return 'function';}
+  }
+  A.prototype = function() {
+    this.do = function() {return 'prototype';}
+  }
+  var x = new A().do();
+  console.log('x: ', x);
+</script>
+
+<!-- ***************************** -->
+
+<!-- prototype -->
+<br>
+<input type="email" name="email" id="">
+<input type="month" name="month" id="">
+<input type="week" name="week" id="">
+<input type="date" name="date" id="">
+<input type="time" name="time" id="">
+<input type="range" name="range" id="">
+<input type="search" name="search" id="">
+
+<!-- ***************************** -->
+
+<!-- 快排 -->
+<br>
+<h3>请输入需要快排的数组，用逗号隔开</h3>
+<input type="text" name="" id="quickSortArr">
+结果：<div id="quickSortResult"></div>
+<button id="quickSortBtn">排序</button>
+<script src="./js/快排.js"></script>
 </body>
 </html>

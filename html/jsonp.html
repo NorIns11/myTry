@@ -7,15 +7,15 @@
   <title>跨域——jsonp</title>
   <script>
     function showData(result) {
-      var res = JSON.stringify(result);
-      document.getElementById("text").innerText = res;
+      // var res = JSON.stringify(result);
+      document.getElementById("text").innerText = result.p;
     }
 
     window.onload = function() {
       document.getElementById("button").onclick = function() {
         var sc = document.createElement("script");
         sc.type = "text/javascript";
-        sc.src = "https://www.baidu.com?callback=showData";
+        sc.src = "https://sug.so.360.cn/suggest?callback=showData";
         var head0 = document.getElementsByTagName("head")[0];
         head0.appendChild(sc);
       }
