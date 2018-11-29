@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    var p = new Promise(function(resolve, reject) {
+      let random = Math.random() * 10;
+      setTimeout(() => {
+        if(random > 5) {
+          console.log("————————————— resolve() —————————————")
+          resolve(random);
+        } else {
+          console.log("————————————— reject() —————————————")
+          reject(random);
+        }
+      }, 2000);
+    });
+
+    p.then(res => {
+      document.getElementsByTagName("p")[0].innerText = "resolved:" + res;
+    }).catch(err => {
+      document.getElementsByTagName("p")[0].innerText = "rejected:" + err;
+    })
+  </script>
+</head>
+<body>
+  <p></p>
+</body>
+</html>
