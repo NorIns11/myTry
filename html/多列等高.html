@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .left {
+      width: 111px;
+      height: 200px;
+    }
+    .center {
+      width: 222px;
+      height: 333px;
+    }
+    .right {
+      width: 168px;
+      height: 199px;
+    }
+    .left, .center, .right {
+      float: left;
+      border-top: 2px dashed #000;
+      border-bottom: 2px dashed #000;
+    }
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    /* 方法一 */
+    .parent1 {
+      width: 920px;
+      background: url("https://files.jb51.net/file_images/article/201212/2012122415215595.gif") repeat-y;
+    }
+
+    /* 方法二 */
+    .rightWrapper {
+      width: 501px;
+      overflow: hidden;
+      background-color: blueviolet;
+    }
+    .centerWrapper {
+      width: 100%;
+      position: relative;
+      right: 168px;
+      overflow: hidden;
+      background-color: chartreuse;
+    }
+    .leftWrapper {
+      width: 100%;
+      position: relative;
+      right: 222px;
+      background-color: peru;
+    }
+    .left2, .center2, .right2 {
+      position: relative;
+      left: 390px;
+    }
+
+    /* 方法三 */
+    .container3 {
+      width: 501px;
+      overflow: hidden;
+      border-bottom: 2px dashed #000;
+    }
+    .left3, .center3, .right3 {
+      height: auto;
+      margin-bottom: -99999px;
+      padding-bottom: 99999px;
+    }
+    .left3, .right3 {
+      background-color: aquamarine;
+    }
+    .center3 {
+      background-color: yellowgreen;
+    }
+
+    /* 方法四 */
+    .table {
+      display: table;
+      width: auto;
+    }
+    .table-row {
+      display: table-row;
+    }
+    .table-cell {
+      display: table-cell;
+    }
+    .left4, .center4, .right4 {
+      float: none;
+    }
+    .left4, .right4 {
+      background-color: aquamarine;
+    }
+    .center4 {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <h4>方法一：父div设置backgroud，虚拟多列等高</h4>
+  <div class="parent1 clearfix">
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </div>
+  <hr>
+  <h4>方法二：背景色div嵌套</h4>
+  <div class="rightWrapper">
+    <div class="centerWrapper">
+      <div class="leftWrapper clearfix">
+        <div class="left left2"></div>
+        <div class="center center2"></div>
+        <div class="right right2">在哪里啊！！！！</div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h4>方法三：使用正padding和负margin对冲实现多列布局</h4>
+  <div class="container3 clearfix">
+    <div class="left left3">
+      <p>left</p>
+    </div>
+    <div class="center center3">
+      <p>center</p>
+      <p>center</p>
+      <p>center</p>
+    </div>
+    <div class="right right3">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+  <hr>
+  <h4>方法四：模仿表格布局</h4>
+  <div class="table">
+    <div class="table-row">
+      <div class="table-cell">
+        <div class="left left4"></div>
+      </div>
+      <div class="table-cell">
+        <div class="center center4"></div>
+      </div>
+      <div class="table-cell">
+        <div class="right right4"></div>
+      </div>
+    </div>
+  </div>      
+</body>
+</html>
