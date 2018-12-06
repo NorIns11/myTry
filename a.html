@@ -41,10 +41,25 @@
 </head>
 <body>
   <!-- triangle -->
-  <div class="tri1"></div>
-  <div class="tri2"></div>
+  <div class="tri1" id="tri1" onclick="clickEvent()"></div>
+  <div class="tri2" id="tri2"></div>
   <div class="nw"></div>
   <hr>
+  <script>
+    function clickEvent() {
+      console.log(1, event.srcElement);
+      console.log(document.getElementById("tri1"));
+      var storage = window.localStorage;
+      console.log(storage);
+      for(var i = 0; i < storage.length; i++) {
+        console.log(storage.key(i));
+        console.log(storage.getItem(storage.key(i)))
+      }
+      // storage.forEach(element => {
+      //   console.log(element.key , ": " , storage.getItem(element.key));
+      // });
+    }
+  </script>
 
   <!-- ***************************** -->
 
